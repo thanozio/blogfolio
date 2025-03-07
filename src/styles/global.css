@@ -107,7 +107,8 @@ h6 {
 }
 
 .expanded {
-  display: unset;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 636px) {
@@ -124,6 +125,10 @@ h6 {
 
   .hamburger {
     display: none;
+  }
+
+  .expanded {
+    flex-direction: row;
   }
 }
 
