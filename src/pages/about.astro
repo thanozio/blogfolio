@@ -1,6 +1,6 @@
 ---
 import Footer from "../components/Footer.astro";
-import Navigation from "../components/Navigation.astro";
+import Header from "../components/Header.astro";
 import "../styles/global.css";
 
 const pageTitle = "About Me";
@@ -23,15 +23,11 @@ const skills = [
   "Python",
 ];
 
-const happy = true;
+const excited = true;
 const finished = false;
 const goal = 3;
 
-const skillColor = "olivedrab";
-const fontWeight = "bold";
-const textCase = "uppercase";
-
-const platform = "github";
+const platform = "GitHub";
 const username = "thanozio";
 ---
 
@@ -43,68 +39,64 @@ const username = "thanozio";
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
 
-    <style
-      define:vars={{
-        skillColor,
-        fontWeight,
-        textCase,
-      }}
-    >
+    <style>
       .skill {
-        color: var(--skillColor);
-        font-weight: var(--fontWeight);
-        text-transform: var(--textCase);
+        color: olivedrab;
+        font-weight: bold;
+        text-transform: uppercase;
       }
     </style>
   </head>
   <body>
-    <Navigation />
+    <Header />
     <main>
-      <h1>{pageTitle}</h1>
-      <h2>... and my new Astro site!</h2>
-      <p>
-        I am working through Astro's introductory tutorial. This is the second
-        page on my website, and it's the first one I built myself!
-      </p>
+      <article class="blog-post">
+        <h1>{pageTitle}</h1>
+        <h2>... and my new Astro site!</h2>
+        <p>
+          I am working through Astro's introductory tutorial. This is the second
+          page on my website, and it's the first one I built myself!
+        </p>
 
-      <p>
-        This site will update as I complete more of the tutorial, so keep
-        checking back and see how my journey is going!
-      </p>
+        <p>
+          This site will update as I complete more of the tutorial, so keep
+          checking back and see how my journey is going!
+        </p>
 
-      <p>Here are a few facts about me:</p>
-      <ul>
-        <li>My name is {identity.firstName}.</li>
-        <li>I live in {identity.country} as a {identity.occupation}.</li>
-        <li>
-          My hobbies are:
-          <ul>
-            {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
-          </ul>
-        </li>
-      </ul>
-      <p>My skills are:</p>
-      <ul>
-        {skills.map((skill) => <li class="skill">{skill}</li>)}
-      </ul>
+        <p>Here are a few facts about me:</p>
+        <ul>
+          <li>My name is {identity.firstName}.</li>
+          <li>I live in {identity.country} as a {identity.occupation}.</li>
+          <li>
+            My hobbies are:
+            <ul>
+              {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
+            </ul>
+          </li>
+        </ul>
+        <p>My skills are:</p>
+        <ul>
+          {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
 
-      {happy && <p>I am happy to be learning Astro!</p>}
+        {excited && <p>I am excited to be learning Astro!</p>}
 
-      {finished && <p>I finished this tutorial!</p>}
+        {finished && <p>I finished this tutorial!</p>}
 
-      {
-        goal === 3 ? (
-          <p>My goal is to finish in 3 days.</p>
-        ) : (
-          <p>My goal is not 3 days.</p>
-        )
-      }
+        {
+          goal === 3 ? (
+            <p>My goal is to finish in 3 days.</p>
+          ) : (
+            <p>My goal is not 3 days.</p>
+          )
+        }
 
-      <p>
-        Learn more about my projects on <a
-          href={`https://${platform}.com/${username}`}>{platform}</a
-        >!
-      </p>
+        <p>
+          Learn more about my projects on <a
+            href={`https://${platform}.com/${username}`}>{platform}</a
+          >!
+        </p>
+      </article>
     </main>
     <Footer />
   </body>
