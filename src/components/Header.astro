@@ -1,15 +1,13 @@
 ---
-
+import Hamburger from "./Hamburger.astro";
 ---
 
 <style>
   header {
     min-width: 100vw;
   }
-  nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .nav-links {
     background-color: #2d2d2d;
   }
 
@@ -27,7 +25,8 @@
   }
 </style>
 <header>
-  <nav>
+  <Hamburger />
+  <nav class="nav-links">
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
