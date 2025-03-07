@@ -1,14 +1,24 @@
 ---
-const currentYear = new Date().getFullYear();
+import Social from "./Social.astro";
+
+const currentYear = 2025;
 ---
+
 <style>
   footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     background-color: #2d2d2d;
     margin: 0;
-    padding: 1.5em;
+    min-height: 100px;
   }
 </style>
 
 <footer>
-  <p>© 2025{currentYear !== 2025 && ` - ${currentYear}`}. Created by Thanos Dimitriades. All Rights Reserved.</p>
+  <Social />
+  <p>
+    © 2025{currentYear > 2025 && ` - ${currentYear}`}. Created by Thanos
+    Dimitriades. All Rights Reserved.
+  </p>
 </footer>
