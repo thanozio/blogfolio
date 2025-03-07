@@ -1,6 +1,7 @@
 ---
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 
 const pageTitle = "About Me";
@@ -31,73 +32,51 @@ const platform = "GitHub";
 const username = "thanozio";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+<BaseLayout pageTitle={pageTitle}>
+  <article class="blog-post">
+    <h2>... and my new Astro site!</h2>
+    <p>
+      I am working through Astro's introductory tutorial. This is the second
+      page on my website, and it's the first one I built myself!
+    </p>
 
-    <style>
-      .skill {
-        color: olivedrab;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-    </style>
-  </head>
-  <body>
-    <Header />
-    <main>
-      <article class="blog-post">
-        <h1>{pageTitle}</h1>
-        <h2>... and my new Astro site!</h2>
-        <p>
-          I am working through Astro's introductory tutorial. This is the second
-          page on my website, and it's the first one I built myself!
-        </p>
+    <p>
+      This site will update as I complete more of the tutorial, so keep checking
+      back and see how my journey is going!
+    </p>
 
-        <p>
-          This site will update as I complete more of the tutorial, so keep
-          checking back and see how my journey is going!
-        </p>
-
-        <p>Here are a few facts about me:</p>
+    <p>Here are a few facts about me:</p>
+    <ul>
+      <li>My name is {identity.firstName}.</li>
+      <li>I live in {identity.country} as a {identity.occupation}.</li>
+      <li>
+        My hobbies are:
         <ul>
-          <li>My name is {identity.firstName}.</li>
-          <li>I live in {identity.country} as a {identity.occupation}.</li>
-          <li>
-            My hobbies are:
-            <ul>
-              {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
-            </ul>
-          </li>
+          {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
         </ul>
-        <p>My skills are:</p>
-        <ul>
-          {skills.map((skill) => <li class="skill">{skill}</li>)}
-        </ul>
+      </li>
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
 
-        {excited && <p>I am excited to be learning Astro!</p>}
+    {excited && <p>I am excited to be learning Astro!</p>}
 
-        {finished && <p>I finished this tutorial!</p>}
+    {finished && <p>I finished this tutorial!</p>}
 
-        {
-          goal === 3 ? (
-            <p>My goal is to finish in 3 days.</p>
-          ) : (
-            <p>My goal is not 3 days.</p>
-          )
-        }
+    {
+      goal === 3 ? (
+        <p>My goal is to finish in 3 days.</p>
+      ) : (
+        <p>My goal is not 3 days.</p>
+      )
+    }
 
-        <p>
-          Learn more about my projects on <a
-            href={`https://${platform}.com/${username}`}>{platform}</a
-          >!
-        </p>
-      </article>
-    </main>
-    <Footer />
-  </body>
-</html>
+    <p>
+      Learn more about my projects on <a
+        href={`https://${platform}.com/${username}`}>{platform}</a
+      >!
+    </p>
+  </article>
+</BaseLayout>
