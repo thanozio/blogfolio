@@ -3,8 +3,8 @@ import BaseLayout from "./BaseLayout.astro";
 interface Frontmatter {
   title: string;
   pubDate: Date;
-  author?: string; 
-  tags?: string[]; 
+  author?: string;
+  tags?: string[];
 }
 
 interface Props {
@@ -13,30 +13,45 @@ interface Props {
 
 const { frontmatter } = Astro.props;
 ---
+
 <style>
   .blog-article {
     margin-top: 4rem;
     max-width: 75vw;
   }
+  a {
+    color: #00539f;
+    text-decoration: none;
+  }
+
   .tags {
     display: flex;
-    list-style-type: none;
-    flex-direction: row;
-    align-items: center;
+    flex-wrap: wrap;
   }
 
   .tag {
-    border-radius: 5px;
-    background-color: cadetblue;
-    padding:  0.25rem 0.5rem;
-    margin: 0.25rem;
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    font-size: 1.15em;
+    background-color: #f8fcfd;
   }
 </style>
+
 <BaseLayout pageTitle={frontmatter.title}>
   <p>Written by {frontmatter.author}</p>
   <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
   <article class="blog-article">
     <slot />
-    <ul class="tags">Tags: {frontmatter.tags?.map((tag: string) => <li class="tag">{tag}</li>)}</ul>
+    <ul class="tags">
+      Tags: {
+        frontmatter.tags?.map((tag: string) => (
+          <li class="tag">
+            <a href={`/tags/${tag}/`}>{tag}</a>
+          </li>
+        ))
+      }
+    </ul>
   </article>
 </BaseLayout>
