@@ -1,5 +1,16 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+interface Frontmatter {
+  title: string;
+  pubDate: Date;
+  author?: string; 
+  tags?: string[]; 
+}
+
+interface Props {
+  frontmatter: Frontmatter;
+}
+
 const { frontmatter } = Astro.props;
 ---
 <style>
@@ -26,6 +37,6 @@ const { frontmatter } = Astro.props;
   <p>Published on: {frontmatter.pubDate.toString().slice(0, 10)}</p>
   <article class="blog-article">
     <slot />
-    <ul class="tags">Tags: {frontmatter.tags.map((tag: string) => <li class="tag">{tag}</li>)}</ul>
+    <ul class="tags">Tags: {frontmatter.tags?.map((tag: string) => <li class="tag">{tag}</li>)}</ul>
   </article>
 </BaseLayout>
