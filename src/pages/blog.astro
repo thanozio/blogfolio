@@ -11,7 +11,7 @@ type PostType = {
 };
 
 const data = import.meta.glob("./posts/*.md", { eager: true });
-const allPosts = Object.keys(data).map(k => data[k]) as PostType[];
+const allPosts = Object.keys(data).map((k) => data[k]) as PostType[];
 
 const pageTitle = "My Astro Learning Blog";
 ---

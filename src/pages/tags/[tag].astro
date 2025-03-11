@@ -8,22 +8,23 @@ export async function getStaticPaths() {
   );
 
   const allTags = allPosts.map((post: any) => {
-    return post.frontmatter.tags as string[]
+    return post.frontmatter.tags as string[];
   });
-  
+
   const uniqueTags = [...new Set(allTags.flat())];
   return uniqueTags.map((tag) => {
-    const posts = allPosts.filter((post: any) => post.frontmatter.tags.includes(tag));
+    const posts = allPosts.filter((post: any) =>
+      post.frontmatter.tags.includes(tag),
+    );
     return {
       params: { tag },
-      props: { posts }
+      props: { posts },
     };
-  })
+  });
 }
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
-
 ---
 
 <BaseLayout pageTitle={`Posts with tag "${tag}"`}>
