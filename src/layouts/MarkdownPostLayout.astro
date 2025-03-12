@@ -19,23 +19,24 @@ const { frontmatter } = Astro.props;
     margin-top: 4rem;
     max-width: 75vw;
   }
-  a {
-    color: #00539f;
-    text-decoration: none;
-  }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    list-style-type: none;
   }
 
   .tag {
     margin: 0.25em;
-    border: dotted 1px #a1a1a1;
     border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #f8fcfd;
+    padding: 0.2em 0.5em;
+    background-color: #25292e;
+  }
+
+  .tag a {
+    color: #8fbcba;
+    text-decoration: none;
   }
 </style>
 

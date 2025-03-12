@@ -4,7 +4,7 @@ import Hamburger from "./Hamburger.astro";
 
 <style>
   .nav-links {
-    background-color: #2d2d2d;
+    background-color: #25292e;
   }
 
   a {
@@ -13,17 +13,19 @@ import Hamburger from "./Hamburger.astro";
     margin: 0;
     padding: 1em;
     display: inline-block;
+    /* color: #8fbcba; */
+    color: #884ef4;
   }
 
   a:hover {
-    text-decoration: underline;
-    background-color: #a343cf;
+    background-color: #8fbcba;
+    color: #25292e;
   }
 </style>
 <header>
   <Hamburger />
   <nav class="nav-links">
-    <a href="/">Home</a>
+    <a href="/" id="home">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
   </nav>

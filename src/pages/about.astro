@@ -1,82 +1,48 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 
 const pageTitle = "About Me";
-
-const identity = {
-  firstName: "Thanos",
-  lastName: "Dimitriades",
-  country: "Greece",
-  occupation: "Software Engineer",
-  hobbies: ["software development", "chess", "fighting games"],
-};
-
-const skills = [
-  "TypeScript",
-  "JavaScript",
-  "React",
-  "C#",
-  ".NET Core",
-  "Svelte",
-  "Python",
-];
-
-const excited = true;
-const finished = false;
-const goal = 3;
-
-const platform = "GitHub";
-const username = "thanozio";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <article class="blog-post">
-    <h2>... and my new Astro site!</h2>
-    <p>
-      I am working through Astro's introductory tutorial. This is the second
-      page on my website, and it's the first one I built myself!
-    </p>
+  <article class="flexit">
+    <section>
+      <h1>{pageTitle}</h1>
+      <p>
+        My name is Thanos, and I'm a dedicated software engineer. My focus is
+        web applications, emphasizing performance, scalability, and redundancy.
+        I'm advocating for open source software and rapid Linux adaptation on
+        the desktop.
+      </p>
+    </section>
 
-    <p>
-      This site will update as I complete more of the tutorial, so keep checking
-      back and see how my journey is going!
-    </p>
-
-    <p>Here are a few facts about me:</p>
-    <ul>
-      <li>My name is {identity.firstName}.</li>
-      <li>I live in {identity.country} as a {identity.occupation}.</li>
-      <li>
-        My hobbies are:
-        <ul>
-          {identity.hobbies.map((hobby) => <li>{hobby}</li>)}
-        </ul>
-      </li>
-    </ul>
-    <p>My skills are:</p>
-    <ul>
-      {skills.map((skill) => <li class="skill">{skill}</li>)}
-    </ul>
-
-    {excited && <p>I am excited to be learning Astro!</p>}
-
-    {finished && <p>I finished this tutorial!</p>}
-
-    {
-      goal === 3 ? (
-        <p>My goal is to finish in 3 days.</p>
-      ) : (
-        <p>My goal is not 3 days.</p>
-      )
-    }
-
-    <p>
-      Learn more about my projects on <a
-        href={`https://${platform}.com/${username}`}>{platform}</a
-      >!
-    </p>
+    <section class="stack">
+      <h2>My Tech Stack</h2>
+      <p>
+        I strive the latest technologies for my individual scenarios and tastes.
+        This is a sample of languages, frameworks, and tools that I've used
+        throughout my career so far, to deliver user value.
+      </p>
+    </section>
   </article>
 </BaseLayout>
+
+<style>
+  .stack {
+    text-align: center;
+  }
+
+  .logos {
+    display: flex;
+    height: 50px;
+    width: calc(8 * 50px);
+    gap: 1rem;
+  }
+
+  .flexit {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+</style>
