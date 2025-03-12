@@ -5,6 +5,9 @@ import "../styles/global.css";
 const pageTitle = "About Me";
 ---
 
+<header>
+  <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+</header>
 <BaseLayout pageTitle={pageTitle}>
   <article class="flexit">
     <section>
@@ -15,15 +18,17 @@ const pageTitle = "About Me";
         I'm advocating for open source software and rapid Linux adaptation on
         the desktop.
       </p>
+
+      <p>While I'm a fan of back-end development, my work experience as full-stack allows me to contribute productively across the stack.</p>
+
     </section>
 
-    <section class="stack">
-      <h2>My Tech Stack</h2>
-      <p>
-        I strive the latest technologies for my individual scenarios and tastes.
-        This is a sample of languages, frameworks, and tools that I've used
-        throughout my career so far, to deliver user value.
-      </p>
+    <section class="logos">
+      <i class="devicon-typescript-plain"></i>
+      <i class="devicon-react-original"></i>
+      <i class="devicon-nodejs-plain-wordmark"></i>
+      <i class="devicon-csharp-plain"></i>
+      <i class="devicon-dotnetcore-plain"></i>
     </section>
   </article>
 </BaseLayout>
@@ -33,16 +38,26 @@ const pageTitle = "About Me";
     text-align: center;
   }
 
+  .logos i {
+    font-size: 4rem;
+  }
+
   .logos {
     display: flex;
-    height: 50px;
-    width: calc(8 * 50px);
-    gap: 1rem;
+    justify-content: center;
+    gap: 2rem;
   }
 
   .flexit {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .logos {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>
