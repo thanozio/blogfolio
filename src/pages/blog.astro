@@ -7,22 +7,40 @@ type PostType = {
   url: string;
   frontmatter: {
     title: string;
+    description: string;
   };
 };
 
 const data = import.meta.glob("./posts/*.md", { eager: true });
 const allPosts = Object.keys(data).map((k) => data[k]) as PostType[];
-
+console.log("all posts", allPosts);
 const pageTitle = "My Blog Posts";
 ---
+<style>
+  .list-container {
+    padding-top: 10vh;
+    font-size: 1.5rem;
+  }
+ .list-container p {
+  text-align: center;
+ }
 
+ .list-container ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+ }
+</style>
 <BaseLayout pageTitle={pageTitle}>
-  <p>Current posts:</p>
+  <div class="list-container">
+    <p>Current posts:</p>
   <ul>
     {
       allPosts.map((post: PostType) => (
-        <BlogPost url={post.url} title={post.frontmatter.title} />
+        <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description} />
       ))
     }
   </ul>
+  </div>
 </BaseLayout>

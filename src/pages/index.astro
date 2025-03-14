@@ -2,7 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 const pageTitle = "Home Page";
 ---
-
+<style>
+  .main-title {
+    display: flex;
+    flex-direction: column;
+    padding-top: 16vh;
+  }
+</style>
 <BaseLayout pageTitle={pageTitle}>
-  <h2>Thanos Dimitriades</h2>
+  <div class="main-title">
+    <h1>Thanos Dimitriades</h1>
+    <h2>Full-Stack Engineer</h2>
+  </div>
 </BaseLayout>

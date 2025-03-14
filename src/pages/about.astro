@@ -9,7 +9,7 @@ const pageTitle = "About Me";
   <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </header>
 <BaseLayout pageTitle={pageTitle}>
-  <article class="flexit">
+  <article class="introduction">
     <section>
       <h1>{pageTitle}</h1>
       <p>
@@ -24,11 +24,11 @@ const pageTitle = "About Me";
     </section>
 
     <section class="logos">
+      <i class="devicon-csharp-plain"></i>
+      <i class="devicon-dotnetcore-plain"></i>
       <i class="devicon-typescript-plain"></i>
       <i class="devicon-react-original"></i>
       <i class="devicon-nodejs-plain-wordmark"></i>
-      <i class="devicon-csharp-plain"></i>
-      <i class="devicon-dotnetcore-plain"></i>
     </section>
   </article>
 </BaseLayout>
@@ -48,10 +48,15 @@ const pageTitle = "About Me";
     gap: 2rem;
   }
 
-  .flexit {
+  .introduction {
     display: flex;
+    padding-top: 10vh;
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
+    text-align: center;
+    max-width: 50%;
+    gap: 20px;
   }
 
   @media screen and (max-width: 768px) {
