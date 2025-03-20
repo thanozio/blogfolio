@@ -12,14 +12,20 @@ const pageTitle = "About Me";
   <article class="introduction">
     <section>
       <h1>{pageTitle}</h1>
-      <p>
-        My name is Thanos, and I'm a dedicated software engineer. My focus is
-        web applications, emphasizing performance, scalability, and redundancy.
-        I'm advocating for open source software and rapid Linux adaptation on
-        the desktop.
-      </p>
+      <p>I build web apps that don't break, scale well, and run fast. I love working on back-end systems, yet my full-stack experience means I can jump around the stack, and communicate effectively with other teams.</p>
+  <div class="padme">
+    <p>I'm passionate about:</p>
+    <ul class="passions">
+      <li>Creating high-performance applications</li>
+      <li>Building scalable systems that grow with your business</li>
+      <li>Implementing redundant solutions that stay online</li>
+    </ul>
+  </div>
 
-      <p>While I'm a fan of back-end development, my work experience as full-stack allows me to contribute productively across the stack.</p>
+  
+  <p>While I enjoy .NET, I'm also advocating for open source and wider Linux adoption for desktops and mobile.</p>
+  
+  <p>If you want to know more, don't hesitate to <a class="mailto-link" href="mailto:thanozio@proton.me">ask</a>.</p>
 
     </section>
 
@@ -40,6 +46,22 @@ const pageTitle = "About Me";
 
   .logos i {
     font-size: 4rem;
+  }
+
+  .padme {
+    padding: 2rem;
+  }
+
+  .passions {
+    text-align: left;
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .mailto-link {
+    color: white;
+    text-decoration: underline;
+    font-weight: bold;
   }
 
   .logos {
